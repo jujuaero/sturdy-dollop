@@ -1,0 +1,94 @@
+#-------------------------------------------------------------------------------
+# Name:        interface.py
+# Purpose:     convetisseur
+#
+# Author:      jules
+#
+# Created:     11/10/2021
+# Copyright:   (c) jules 2021
+# Licence:     <your licence>
+#-------------------------------------------------------------------------------
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
+
+from tkinter import*
+
+class MyApp:
+
+    def __init__(self):
+        self.window = Tk()
+        self.window.title("Conversion")
+        self.window.geometry("720x480")
+        self.window.minsize(480, 360)
+        self.window.iconbitmap("lol.ico")
+        self.window.config(background='#41B77F')
+
+        # initialization des composants
+        self.frame = Frame(self.window, bg='#41B77F')
+
+        # creation des composants
+        self.create_widgets()
+
+        # empaquetage
+        self.frame.pack(expand=YES)
+
+    def create_widgets(self):
+        self.create_title()
+        self.create_subtitle()
+        self.nb_entry()
+        self.create_button_hexadecimal_binanire()
+        self.create_button_decimal_binaire()
+        self.create_button_decimal_hexadecimal()
+
+
+
+    def create_title(self):
+        label_title = Label(self.frame, text="Bienvenue sur l'application", font=("Courrier", 40), bg='#41B77F',
+                            fg='white')
+        label_title.pack()
+
+    def create_subtitle(self):
+        label_subtitle = Label(self.frame, text="entrer un nombre", font=("Courrier", 25), bg='#41B77F',
+                               fg='white')
+        label_subtitle.pack()
+
+    def create_button_hexadecimal_binaire(self):
+        convertisseur_button = Button(self.frame, text="Convertir", font=("Courrier", 25), bg='white', fg='#41B77F',
+                                      command=self.convertir)
+        convertisseur_button.pack(pady=25)
+
+    def nb_entry(self):
+        self.nb_entry = Entry(self.frame, text="entrer un nombre", font=("Courrier", 25), bg='white', fg='#41B77F')
+        self.nb_entry.pack()
+        
+    def create_button_decimal_binaire(self):
+        convertisseur_button = Button(self.frame, text="Décimal à binaire", font=("Courrier", 25), bg='white',
+                                      fg='#41B77F', command=self.decimal_binaire)
+        convertisseur_button.pack(pady=25)
+
+    def create_button_decimal_hexadecimal(self):
+        convertisseur_button = Button(self.frame, text="Décimal à hexadecimal", font=("Courrier", 25), bg='white',
+                                      fg='#41B77F', command=self.decimal_hexa)
+        convertisseur_button.pack(pady=25)
+
+    def decimal_binaire(self):
+        pass
+
+    def decimal_hexa(self):
+        pass
+
+    def convertir(self):
+        p='2'
+        self.nb_entry.delete(0, END)
+        self.nb_entry.insert(0, p)
+
+
+
+# afficher#
+app = MyApp()
+app.window.mainloop()
+
